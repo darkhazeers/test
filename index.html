@@ -95,15 +95,15 @@
         }
     }
 
-    // Function to get the current signed-in user's name
+    // Function to get the current signed-in user's name from the specified element
     function getUserName() {
-        // This is a placeholder. Replace it with actual code to get the user's name.
-        return "Current User";
+        var userNameElement = document.getElementById("mectrl_currentAccount_primary");
+        return userNameElement ? userNameElement.innerText : "User";
     }
 
     // Set the user's name dynamically
-    document.getElementById("mectrl_currentAccount_primary").innerText = getUserName();
-    document.getElementById("mectrl_currentAccount_primary").innerText = getUserName();
+    document.getElementById("userName").innerText = getUserName();
+    document.getElementById("userIconName").innerText = getUserName();
 </script>
 
 </body>
