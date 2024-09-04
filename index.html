@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharePoint Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .welcome-banner {
+            text-align: center;
+            margin: 20px;
+        }
+        .user-menu {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        .user-menu button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: white;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <!-- Navigation bar or other header content goes here -->
+</header>
+
+<main>
+    <div class="welcome-banner">
+        <!-- This section greets the user with their name -->
+        <h1>Welcome <span id="userName"></span></h1>
+        <p>Here Is Your One Stop Solution</p>
+    </div>
+
+    <!-- User icon and dropdown menu -->
+    <div class="user-menu">
+        <button id="userIcon" onclick="toggleDropdown()">👤 <span id="userIconName"></span> ▼</button>
+        <div id="dropdownContent" class="dropdown-content">
+            <a href="#manageProfile">Manage Your Profile</a>
+            <a href="#organization">Organization</a>
+            <a href="#assets">Assets</a>
+            <a href="#signOut">Sign Out</a>
+        </div> 
+    </div>
+
+    <!-- Additional main content goes here -->
+</main>
+
+<footer>
+    <!-- Footer content goes here -->
+</footer>
+
+<script type="text/javascript">
+    // JavaScript to handle user interaction
+    function toggleDropdown() {
+        document.getElementById("dropdownContent").classList.toggle("show");
+    }
+
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+        if (!event.target.matches('#userIcon')) {
+            var dropdowns = document.getElementsByClassName("dropdown-content");
+            for (var i = 0; i < dropdowns.length; i++) {
+                var openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+
+    // Function to get the current signed-in user's name
+    function getUserName() {
+        // This is a placeholder. Replace it with actual code to get the user's name.
+        return "Current User";
+    }
+
+    // Set the user's name dynamically
+    document.getElementById("mectrl_currentAccount_primary").innerText = getUserName();
+    document.getElementById("mectrl_currentAccount_primary").innerText = getUserName();
+</script>
+
+</body>
+</html>
